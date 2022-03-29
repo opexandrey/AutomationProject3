@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AProject3 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         System.setProperty("webdriver.chrome.driver", "C:\\__DuoTech\\SoftWare\\Automation\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -80,7 +80,7 @@ public class AProject3 {
 
         //getting the count of results
         String countString = driver.findElement(By.xpath("//button[@class='button large primary-green show-me-search-submit']")).getText();
-        int count = Integer.valueOf(countString.substring(8,10));
+        int count = Integer.parseInt(countString.substring(8,10));
         System.out.println(count);
 
         driver.findElement(By.xpath("//button[@class='button large primary-green show-me-search-submit']")).click();
@@ -128,7 +128,8 @@ public class AProject3 {
 
         String actualPriceSort = sortBy.getFirstSelectedOption().getText().trim();
         String expectedPriceSort = "Price - High to Low";
-        Assert.assertTrue(actualPriceSort.equals(expectedPriceSort));
+      //  Assert.assertTrue(actualPriceSort.equals(expectedPriceSort));
+        Assert.assertEquals(actualPriceSort, expectedPriceSort);
         System.out.println("Price sort verified");
 
 
@@ -137,7 +138,8 @@ public class AProject3 {
 
         String actualMileageSort = sortBy.getFirstSelectedOption().getText().trim();
         String expectedMileageSort = "Mileage - Low to High";
-        Assert.assertTrue(actualMileageSort.equals(expectedMileageSort));
+      //  Assert.assertTrue(actualMileageSort.equals(expectedMileageSort));
+        Assert.assertEquals(actualMileageSort,expectedMileageSort);
         System.out.println("Mileage sort verified");
 
 
@@ -145,7 +147,8 @@ public class AProject3 {
         sortBy.selectByVisibleText("Year - New to Old");
         String actualYearSort = sortBy.getFirstSelectedOption().getText().trim();
         String expectedYearSort = "Year - New to Old";
-        Assert.assertTrue(actualYearSort.equals(expectedYearSort));
+      //  Assert.assertTrue(actualYearSort.equals(expectedYearSort));
+        Assert.assertEquals(actualYearSort,expectedYearSort);
         System.out.println("Year sort verified");
 
 
